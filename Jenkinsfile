@@ -1,9 +1,27 @@
 pipeline {
   agent any
   stages {
-    stage('Check node js') {
+    stage('NPM install') {
       steps {
-        sh 'npm --version'
+        sh 'npm ci'
+      }
+    }
+
+    stage('Build') {
+      steps {
+        sh 'npm build'
+      }
+    }
+
+    stage('Test') {
+      steps {
+        sh 'npm test'
+      }
+    }
+
+    stage('Successfuly') {
+      steps {
+        error 'Everything is okay/ Failure'
       }
     }
 
