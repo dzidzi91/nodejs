@@ -3,7 +3,8 @@ pipeline {
   stages {
     stage('NPM install') {
       steps {
-        sh 'npm ci'
+        sh '''npm init
+npm ci'''
       }
     }
 
